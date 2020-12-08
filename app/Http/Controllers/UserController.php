@@ -1,7 +1,7 @@
 <?php
 namespace App\Http\Controllers;
 
-use App\User;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -15,7 +15,7 @@ class UserController extends Controller
                 'users' => $users->toArray()
             ], 200);
     }
-    
+
     public function show(Request $request, $id)
     {
         $user = User::find($id);

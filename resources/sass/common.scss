@@ -1,0 +1,30 @@
+//alignments
+.center {
+    &-img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    &-text {
+        text-align: center;
+    }
+}
+
+.btn-light {
+    background-color: $light-gray;
+}
+
+.form-control {
+    &:focus {
+        box-shadow: none;
+    }
+}
+
+.alert {
+    background-color: white;
+    border-radius: 5px;
+    border-left-width: 10px;
+    &-danger {
+        border-color: $red;
+    }
+}
