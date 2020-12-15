@@ -56,7 +56,7 @@
                         password: app.password
                     },
                     success: function(response) {
-                        this.$router.push({name: 'home'});
+                        this.$router.push({name: 'dashboard'});
                     },
                     error: function() {
                         console.log('error');

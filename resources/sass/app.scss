@@ -1,6 +1,9 @@
 // Fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito');
 
+//Fontawesome
+@import "node_modules/font-awesome/scss/font-awesome.scss";
+
 // Variables
 @import 'variables';
 
@@ -11,3 +14,6 @@
 
 //pages
 @import 'pages/login';
+
+//components
+@import 'components/index';

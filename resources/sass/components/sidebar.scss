@@ -1,0 +1,186 @@
+$primary-color: $pink !default;
+$base-bg: $black !default;
+
+$item-color: $base-bg !default;
+
+$item-active-color: $base-bg !default;
+$item-active-bg: null !default;
+
+$item-open-color: $base-bg !default;
+$item-open-bg: $primary-color !default;
+
+$item-hover-color: null !default;
+$item-hover-bg: rgba(darken($base-bg, 5%), 0.5) !default;
+
+$icon-color: $base-bg !default;
+$icon-bg: darken( $base-bg, 5% ) !default;
+
+$icon-active-color: $base-bg !default;
+$icon-active-bg: vsm--icon !default;
+
+$icon-open-color: null !default;
+$icon-open-bg: $item-open-bg !default;
+
+$mobile-item-color: $base-bg !default;
+$mobile-item-bg: $primary-color !default;
+$mobile-icon-color: $mobile-item-color !default;
+$mobile-icon-bg: $mobile-item-bg !default;
+
+$dropdown-bg: lighten( $base-bg, 5% ) !default;
+$dropdown-color: null !default;
+
+$item-font-size: 16px !default;
+$item-line-height: 30px !default;
+$item-padding: 10px !default;
+$icon-height: 30px !default;
+$icon-width: 30px !default;
+
+@import 'node_modules/vue-sidebar-menu/src/scss/vue-sidebar-menu.scss';
+
+#page-content {
+    &.expanded {
+        padding-left: $expanded-sidebar-width;
+        transition: 0.3s ease;
+    }
+    &.minimized {
+        padding-left: $sidebar-width;
+        transition: 0.3s ease;
+    }
+}
+
+#header{
+    &.expanded {
+        padding-left: $expanded-sidebar-width;
+        transition: 0.3s ease;
+    }
+    &.minimized {
+        padding-left: $sidebar-width;
+        transition: 0.3s ease;
+    }
+}
+
+.v-sidebar-menu {
+	transition:flex 1.3s ease-out;
+	flex:1;
+    
+	.sidebar-logo {
+        width: 90px;
+	}
+
+	&.vsm_expanded {
+		width: $expanded-sidebar-width !important;
+
+		.vsm--item {
+			&_open {
+				& .vsm--icon {
+	              background-color: transparent;
+	            }
+		    }
+		}
+	}
+
+	&.vsm_collapsed {
+		width: $sidebar-width !important;
+		padding-top: 45px;
+
+        .vsm--link.vsm--link_mobile-item {
+            background-color: transparent;
+            & .vsm--icon {
+                color: inherit;
+                background-color: transparent;
+            }
+        }
+        
+        .vsm--link_hover {
+            background-color: $pink !important;
+        }
+
+        .router-link-active {
+            .vsm--icon {
+                color: inherit;
+                background-color: $pink;
+            }
+        }
+       
+	}
+
+	.vsm--arrow::after {
+	    content: '\F054' !important;
+		font-family: FontAwesome !important;
+	}
+
+	.vsm--toggle-btn::after {
+	    content: '\F07E' !important;
+			font-family: FontAwesome !important;
+	}
+
+	.vsm--toggle-btn {
+        background-color: $white !important;
+        min-width: 0px !important;
+        
+        &:active,
+        &:focus {
+            outline: none !important;
+        }
+	}
+
+    .vsm--item {
+
+    	.vsm--link  {
+			.vsm--icon {
+				background-color: transparent;
+			}
+			.vsm--title {
+    			font-weight: bold;
+    		}
+		}
+
+		&:hover {
+			background-color: $pink;
+
+			.vsm--title {
+    			font-weight: bold;
+    		}
+    		.vsm--icon {
+    			font-weight: bold;
+    		}
+    	}
+
+    	.vsm--dropdown {
+			:hover {
+				.vsm--title {
+					font-weight: inherit;
+				}
+				.vsm--icon {
+					font-weight: inherit;
+				}
+			}
+		}
+
+		.vsm--link.vsm--link_level-1.router-link-active {
+            box-shadow: 3px 0px 0px 0px $green inset;
+            background: $pink;
+			.vsm--title {
+    			font-weight: bold;
+    		}
+			.vsm--icon {
+                color: inherit;
+    			font-weight: bold;
+	        	background-color: transparent;
+    		}
+		}
+
+		.vsm--link.vsm--link_level-2.router-link-active {
+            box-shadow: 3px 0px 0px 0px $green inset;
+            background: $pink;
+			.vsm--title {
+    			font-weight: bold;
+    		}
+			.vsm--icon {
+    			font-weight: bold;
+	        	background-color: transparent;
+    		}
+		}
+    }
+
+}

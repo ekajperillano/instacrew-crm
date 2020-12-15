@@ -1,0 +1,36 @@
+
+#header {
+	/* Style the header with a grey background and some padding */
+	position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+
+	.header {
+		overflow: hidden;
+		background-color: $white;
+		height: $headerHeight !important;
+
+	  	.header-controls {
+            float: right;
+              
+	  		.btn.btn-outline-info {
+				border: 0px;
+				color: $black;
+                box-sizing: content-box;
+                height: $headerHeight - 10;
+
+                &:hover,
+                &:focus {
+                    background-color: $pink;
+					font-weight: bold;
+				}
+			}
+        }
+        
+        .datetime {
+            margin-top: 15px;
+            margin-left: 10px;
+        }
+	}
+}

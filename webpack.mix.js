@@ -18,6 +18,7 @@ mix.extend('wbConfig', new class {
 			'vue$': 'vue/dist/vue.esm.js',
 			'@': __dirname + '/resources/js/',
 			'configs': __dirname + '/resources/js/configs/',
+			'components': __dirname + '/resources/js/components/',
 			'pages': __dirname + '/resources/js/pages/',
 		};
 	}

@@ -14,8 +14,8 @@ const routes = [
     { path: '/404', component: NotFound },
     { path: '/403', component: PageForbidden },
     {
-        path: '/',
-        name: 'home',
+        path: '/dashboard',
+        name: 'dashboard',
         component: Dashboard,
         meta: {
             auth: true
