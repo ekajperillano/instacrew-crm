@@ -18,6 +18,16 @@ Route::group(['middleware' => 'auth:api'], function(){
     // Users
     Route::get('users', 'UserController@index')->middleware('isAdmin');
     Route::get('users/{id}', 'UserController@show')->middleware('isAdminOrSelf');
+
+
+    //Role
+    Route::prefix('role')->group(function () { 
+        Route::get('options', 'RoleController@options');
+        Route::post('/', 'RoleController@store');
+        Route::patch('{role}', 'RoleController@update');
+    });
+
+    Route::get('permission/list', 'PermissionController@list');
 });
 
 Route::prefix('auth')->group(function () {

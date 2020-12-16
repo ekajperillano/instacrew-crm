@@ -43,14 +43,23 @@ class AuthController extends Controller
             'msg' => 'Logged out Successfully.'
         ], 200);
     }
-    public function user(Request $request)
-    {
-        $user = User::find(Auth::user()->id);
+    
+    public function user(Request $request) {
+        $user = User::with(['role.permissions' ])->find(Auth::user()->id);
+        $permissions = [];
+
+        if($user->role && !empty($user->role->permissions)) {
+            $permissions = $user->role->permissions->pluck('code');
+        }
+
+        $user['permissions'] =  $permissions;
+ 
         return response()->json([
             'status' => 'success',
             'data' => $user
         ]);
     }
+
     public function refresh()
     {
         if ($token = $this->guard()->refresh()) {

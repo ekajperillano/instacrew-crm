@@ -1,8 +1,12 @@
 <template>
-    <div id="main">
-        <crm-header :expanded="expanded" />
+    <div ref="instacrewMain" id="main">
+        <crm-header v-if="$auth.check()" :expanded="expanded" />
         <sidebar v-if="$auth.check()" @toggleExpand="toggleExpand"/>
-        <div id="page-content" :class="expanded == true ? 'expanded' : 'minimized' ">
+        <div id="page-content" :class="
+            $auth.check()
+                ? ( expanded == true) ? 'expanded' : 'minimized'
+                : ''
+        ">
             <router-view></router-view>
         </div>
     </div>

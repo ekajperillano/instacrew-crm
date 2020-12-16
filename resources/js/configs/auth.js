@@ -7,12 +7,12 @@ const config = {
   auth: bearer,
   http: axios,
   router: router,
-  tokenDefaultName: 'laravel-vue-spa',
+  tokenDefaultName: '1nst@-cr3w',
   tokenStore: ['localStorage'],
-  rolesVar: 'role',
+  rolesVar: 'permissions',
   registerData: {url: 'auth/register', method: 'POST', redirect: '/login'},
   loginData: {url: 'auth/login', method: 'POST', redirect: '', fetchUser: true},
-  logoutData: {url: 'auth/logout', method: 'POST', redirect: '/', makeRequest: true},
+  logoutData: {url: 'auth/logout', method: 'POST', redirect: '/login', makeRequest: true},
   fetchData: {url: 'auth/user', method: 'GET', enabled: true},
   refreshData: {url: 'auth/refresh', method: 'GET', enabled: true, interval: 30}
 }
