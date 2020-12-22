@@ -2,3 +2,51 @@ $expanded-sidebar-width: 300px;
 $sidebar-width: 50px;
 
 $headerHeight: 50px;
+
+//toggle checkbox scss
+$slideWidth: 3em;
+$borderRadius: 1.25em;
+
+$switchWidth: $slideWidth/2;
+$switchHeight: $slideWidth/2;
+
+$distance: $slideWidth/2;
+
+$switchColor: $blue;
+$sliderColorActive: $white;
+$sliderColorInactive: $white;
+
+$transitionTime: 350ms;
+
+//toast variables
+$vt-font-color: $black;
+
+$vt-color-default: $blue !default;
+$vt-text-color-default: $black !default;
+
+$vt-toast-min-width: 326px !default;
+$vt-toast-max-width: 600px !default;
+$vt-toast-background: $vt-font-color !default;
+
+$vt-toast-min-height: 64px !default;
+$vt-toast-max-height: 800px !default;
+
+$vt-color-info: $blue !default;
+$vt-text-color-info: $vt-font-color !default;
+
+$vt-color-success: $green !default;
+$vt-text-color-success: $vt-font-color !default;
+
+$vt-color-warning: $yellow !default;
+$vt-text-color-warning: $vt-font-color !default;
+
+$vt-color-error: $red !default;
+$vt-text-color-error: $vt-font-color !default;
+
+$vt-color-progress-default: linear-gradient(to right, #4cd964, #5ac8fa, #007aff, #34aadc, #5856d6, #ff2d55) !default;
+
+$vt-mobile: "only screen and (max-width : 600px)" !default;
+$vt-not-mobile: "only screen and (min-width : 600px)" !default;
+$vt-font-family: $font-family-sans-serif !default;
+$vt-z-index: 9999 !default;
+

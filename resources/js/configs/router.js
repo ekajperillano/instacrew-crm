@@ -9,6 +9,8 @@ import Login from 'pages/auth/login';
 import ForgotPassword from 'pages/auth/forgot-password';
 import Dashboard from 'pages/dashboard';
 
+import RoleList from 'pages/role/list';
+
 // Routes
 const routes = [
     { path: '/404', component: NotFound },
@@ -43,6 +45,14 @@ const routes = [
         component: ForgotPassword,
         meta: {
             auth: false
+        }
+    },
+    {
+        path: '/roles',
+        name: 'roles_list',
+        component: RoleList,
+        meta: {
+            auth: true
         }
     },
 ]

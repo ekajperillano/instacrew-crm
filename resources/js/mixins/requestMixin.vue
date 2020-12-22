@@ -1,5 +1,5 @@
 <script>
-    import request from 'utils/request.js';
+    import request from 'utils/request';
 
     export default {
         data() {

@@ -1,0 +1,16 @@
+.role-list {
+    .permission-header {
+        padding: 0px;
+        
+        button {
+            &:active,
+            &:focus {
+                box-shadow: none;
+            }
+        }
+    }
+
+    .permission-table {
+        padding: .75rem;
+    }
+}

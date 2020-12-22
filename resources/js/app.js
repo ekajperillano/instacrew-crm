@@ -9,6 +9,8 @@ import Index from '@/Index';
 import auth from 'configs/auth'
 import router from 'configs/router'
 import { BootstrapVue, BootstrapVueIcons } from 'bootstrap-vue'
+import Loading from 'vue-loading-overlay';
+import Toast from "vue-toastification";
 
 // Set Vue globally
 window.Vue = Vue
@@ -22,9 +24,17 @@ Vue.use(VueAuth, auth)
 
 // Load Index
 Vue.component('index', Index)
-
 Vue.use(BootstrapVue)
 Vue.use(BootstrapVueIcons)
+Vue.use(Loading, {
+	color: '#FCE2E3',
+	width: 40,
+	height: 40,
+});
+
+Vue.use(Toast, {
+    // You can set your default options here
+});
 
 const app = new Vue({
     el: '#app',

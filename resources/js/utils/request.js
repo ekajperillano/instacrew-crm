@@ -1,4 +1,3 @@
-
 import * as download from 'downloadjs';
 export default class request {
 

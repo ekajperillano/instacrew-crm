@@ -60,7 +60,7 @@
                         icon: 'fa fa-users'
                     },
                     {
-                        href: '/role',
+                        href: '/roles',
                         title: 'Roles and Permissions',
                         icon: 'fa fa-lock'
                     },

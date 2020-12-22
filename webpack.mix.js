@@ -19,6 +19,7 @@ mix.extend('wbConfig', new class {
 			'@': __dirname + '/resources/js/',
 			'configs': __dirname + '/resources/js/configs/',
 			'utils': __dirname + '/resources/js/utils/',
+			'mixins': __dirname + '/resources/js/mixins/',
 			'components': __dirname + '/resources/js/components/',
 			'pages': __dirname + '/resources/js/pages/',
 		};

@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import accounting from 'accounting'
 import moment from 'moment';
-import { DATE_FORMAT } from 'configs/constants';
+import { DATE_FORMAT } from 'configs/constants.js';
 
 export function getDates(startDate, stopDate) {
     var dateArray = [];

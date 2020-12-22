@@ -1,0 +1,58 @@
+.checkbox-toggle {
+    width: $slideWidth * 3;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+
+    &:focus {
+        outline: none;
+    }
+    
+    .checkbox-slide {
+        width: $slideWidth + .25;
+        padding: 0;
+        margin: 0;
+        border-radius: $borderRadius;
+        cursor: pointer;
+        
+        &.checked {
+            transition: all $transitionTime;
+            background: $green;
+        }
+        
+        &.unchecked {
+            transition: all $transitionTime;
+            background: $red;
+        }
+
+        &.disabled {
+            cursor: not-allowed;
+        }
+        
+    }
+
+    .checkbox-switch {
+        padding: 0;
+        margin: 0;
+        width: $switchWidth;
+        height: $switchHeight;
+        border-radius: $borderRadius;
+        cursor: pointer;
+
+        &.checked {
+            transform: translateX($distance);
+            transition: all $transitionTime;
+            background: $sliderColorActive;
+        }
+        
+        &.unchecked {
+            transition: all $transitionTime;
+            background: $sliderColorInactive;
+        }
+    }
+
+    .checkbox-label {
+        margin-left: 0.5em;
+    }   
+}
