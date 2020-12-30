@@ -4,15 +4,23 @@
 
     > .card {
         background: $white; 
-        min-height: 50vh;
+        min-height: 30vh;
         box-shadow: $box-shadow;
         
         > .card-body{
             padding: 0px;
             > .card-header {
+                > h4 {
+                    margin-bottom: 0px;
+                    font-size: $font-lg;
+                    font-weight: bold;
+                }
                 background: transparent;
+                background-color: none;
                 border-bottom: solid 2px $light-gray;
             }
         }
     }
+
+    
 }

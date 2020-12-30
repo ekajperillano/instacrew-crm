@@ -8,6 +8,7 @@ use App\Http\Requests\BaseRequest;
 use App\Http\Requests\User\InviteRequest;
 use App\Http\Requests\User\ResetPasswordRequest;
 use App\Http\Requests\User\UpdateRequest;
+use App\Http\Requests\User\PasswordUpdateRequest;
 
 use Mail;
 use App\Mail\User\ResetPassword;
@@ -118,5 +119,18 @@ class UserController extends Controller
             'status' => 'success',
             'token' => $token
         ], config('constants.response_codes.success'));
+    }
+
+    public function passwordUpdate(PasswordUpdateRequest $request, User $user) {
+        $data = $request->all();
+        
+        $user->password = Hash::make($data['password']);
+        $user->save();
+
+        return response()->json([
+            'status' => 'success',
+            'data' => true
+        ], config('constants.response_codes.success'));
+
     }
 }

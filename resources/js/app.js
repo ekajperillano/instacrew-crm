@@ -14,6 +14,7 @@ import Loading from 'vue-loading-overlay';
 import Toast from "vue-toastification";
 import VModal from 'vue-js-modal';
 import VueEvents from 'vue-events';
+import Fragment from 'vue-fragment'
 
 // Set Vue globally
 window.Vue = Vue
@@ -44,6 +45,9 @@ Vue.use(VModal, { dynamic: true, injectModalsContainer: true, adaptive: true })
 
 //Events
 Vue.use(VueEvents);
+
+//Fragment
+Vue.use(Fragment.Plugin)
 
 const app = new Vue({
     el: '#app',

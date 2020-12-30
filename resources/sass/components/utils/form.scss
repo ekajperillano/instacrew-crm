@@ -1,0 +1,12 @@
+form {
+    .form-group {
+        input  {
+            border-color: $pink;
+
+            &:focus {
+                border-width: 2px;
+                border-color: $pink;
+            }
+        }
+    }
+}

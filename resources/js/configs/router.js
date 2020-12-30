@@ -12,6 +12,7 @@ import Dashboard from 'pages/dashboard';
 import RoleList from 'pages/role/list';
 
 import UserList from 'pages/user/list';
+import UserProfile from 'pages/user/profile';
 
 // Routes
 const routes = [
@@ -57,11 +58,18 @@ const routes = [
             auth: true
         }
     },
-
     {
         path: '/users',
         name: 'users_list',
         component: UserList,
+        meta: {
+            auth: true
+        }
+    },
+    {
+        path: '/profile',
+        name: 'user_profile',
+        component: UserProfile,
         meta: {
             auth: true
         }

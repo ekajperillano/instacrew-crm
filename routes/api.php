@@ -24,7 +24,8 @@ Route::group(['middleware' => 'auth:api'], function(){
         
         Route::group(['middleware' => 'isAdminOrSelf'], function(){
             Route::get('/{id}', 'UserController@show')->middleware('isAdminOrSelf');
-            Route::patch('/{id}', 'UserController@update')->middleware('isAdminOrSelf');
+            Route::patch('/{user}/password', 'UserController@passwordUpdate')->middleware('isAdminOrSelf');
+            Route::patch('/{user}', 'UserController@update')->middleware('isAdminOrSelf');
         });
     });
     

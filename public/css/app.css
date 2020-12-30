@@ -14042,6 +14042,14 @@ a.text-dark:focus {
   padding: 0.75rem;
 }
 
+.profile-card {
+  min-height: 30vh;
+}
+
+.profile-card + .profile-card {
+  margin-top: 10px;
+}
+
 .v-select {
   position: relative;
   font-family: inherit;
@@ -14438,6 +14446,15 @@ span {
 
 .card {
   border-radius: 0px !important;
+}
+
+form .form-group input {
+  border-color: #FCE2E3;
+}
+
+form .form-group input:focus {
+  border-width: 2px;
+  border-color: #FCE2E3;
 }
 
 .checkbox-toggle {
@@ -15081,7 +15098,7 @@ span {
 
 #page-content > .card {
   background: white;
-  min-height: 50vh;
+  min-height: 30vh;
   box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.15);
 }
 
@@ -15091,7 +15108,14 @@ span {
 
 #page-content > .card > .card-body > .card-header {
   background: transparent;
+  background-color: none;
   border-bottom: solid 2px #F2F2F2;
+}
+
+#page-content > .card > .card-body > .card-header > h4 {
+  margin-bottom: 0px;
+  font-size: 24px;
+  font-weight: bold;
 }
 
 .Vue-Toastification__container {

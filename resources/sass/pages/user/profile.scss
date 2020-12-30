@@ -1,0 +1,7 @@
+.profile-card {
+    min-height: 30vh;
+}
+
+.profile-card  + .profile-card {
+    margin-top: 10px;
+}
