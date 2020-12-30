@@ -7,3 +7,7 @@ $vt-namespace: 'Vue-Toastification' !default;
 @import "vue-toastification/src/scss/_progressBar";
 @import "vue-toastification/src/scss/_icon";
 @import "vue-toastification/src/scss/animations/_bounce";
+
+.Vue-Toastification__toast {
+    border-radius: 0px !important;
+} 

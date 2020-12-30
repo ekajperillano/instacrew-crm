@@ -26,7 +26,6 @@
                     <b-collapse :id="'accordion-' + index" accordion="my-accordion" role="tabpanel">
                         <b-card-body class="permission-table">
                             <b-table v-if="selected.role" 
-                                bordered
                                 hover
                                 sticky-header
                                 :items="permission.items"

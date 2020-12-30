@@ -2,4 +2,8 @@
 
 .v-select{
 	min-width: 130px;
+
+	.vs__dropdown-toggle {
+		border-radius: 0px;
+	}
 }

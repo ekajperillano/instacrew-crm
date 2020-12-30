@@ -11,6 +11,8 @@ import Dashboard from 'pages/dashboard';
 
 import RoleList from 'pages/role/list';
 
+import UserList from 'pages/user/list';
+
 // Routes
 const routes = [
     { path: '/404', component: NotFound },
@@ -55,11 +57,32 @@ const routes = [
             auth: true
         }
     },
+
+    {
+        path: '/users',
+        name: 'users_list',
+        component: UserList,
+        meta: {
+            auth: true
+        }
+    },
 ]
 
 const router = new VueRouter({
   history: true,
   mode: 'history',
   routes,
-})
+});
+
+router.beforeEach((to, from, next) => {
+    const { name: fromName, params: fromParams, meta: fromMeta } = from
+    const { name: toName, params: toParams, meta: toMeta } = to
+
+    if(toName == 'login') {
+        localStorage.clear();
+    }
+
+    next(); 
+    
+});
 export default router

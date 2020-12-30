@@ -27,7 +27,7 @@ export function formatNumber (value, precision = 2) {
     return accounting.formatNumber(value, precision)
 }
 
-export function allcap (value) {
+export function allCap (value) {
     if(value) {
       return value.toUpperCase()
     }
@@ -42,4 +42,10 @@ export function formatDate (value, fmt = DATE_FORMAT) {
 
 export function inArray(haystack, needle) {
     return haystack.findIndex(hay =>  _.toLower(hay) == _.toLower(needle)) > -1
+}
+
+export function refreshDatatable(app, datatable) {
+    app.$nextTick( () => {
+        app.$refs[datatable].refresh();
+    });
 }

@@ -1,0 +1,77 @@
+.v--modal {
+    border-radius: 0px !important;
+
+    .modal {
+        position: relative;
+        display: block;
+        border-left: 5px solid $blue;
+    
+        .modal-header {
+            font-size: $font-lg;
+            font-weight: bold;
+            color: $blue;
+            border-radius: 0px;
+            background-color: $white;
+            border-bottom: none;
+            padding: .75rem;
+            
+            .close-modal {
+                border: 0px;
+                color: inherit;
+                min-width: 0px !important;
+                float: right;
+                
+                &:hover {
+                    font-weight: bold;
+                    background-color: transparent !important;
+                }
+    
+                &:focus {
+                    box-shadow: none;
+                    background-color: none !important;
+                }
+    
+                i {
+                    font-size: $font-lg;
+                }
+            }
+        }
+    
+        &.success {
+            border-left: 5px solid $green;
+            .modal-header {
+                color: $green
+            }
+        }
+    
+        &.danger {
+            border-left: 5px solid $red;
+            .modal-header {
+                color: $red
+            }
+        }
+    
+        &.secondary {
+            border-left: 5px solid $gray;
+            .modal-header {
+                color: $gray
+            }
+        }
+    
+        .modal-body {
+            padding: .75rem;
+        }
+    
+        .modal-footer {
+            border: none;
+            align-items: center;
+            justify-content: center;
+        }
+    
+        .v-select {
+            .vs__dropdown-menu  {
+                max-height: 100px;
+            }
+        }
+    }
+}

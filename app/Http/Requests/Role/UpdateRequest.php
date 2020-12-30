@@ -12,7 +12,7 @@ class UpdateRequest extends FormRequest
      * @return bool
      */
     public function authorize()
-    {
+    {   
         return true;
     }
 

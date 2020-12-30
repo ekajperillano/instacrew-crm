@@ -10,6 +10,13 @@
     }
 }
 
+.right {
+    flex-basis: 0;
+    flex-grow: 1;
+    max-width: 100%;
+    text-align: right !important;
+}
+
 .btn-light {
     background-color: $light-gray;
 }
@@ -22,7 +29,7 @@
 
 .alert {
     background-color: white;
-    border-radius: 5px;
+    border-radius: 0px;
     border-left-width: 10px;
     &-danger {
         border-color: $red;

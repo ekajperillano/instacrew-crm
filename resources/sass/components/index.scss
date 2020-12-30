@@ -1,8 +1,15 @@
 @import 'variables';
 
-@import 'select';
+@import 'utils/select';
+@import 'utils/btn';
+@import 'utils/input';
+@import 'utils/span';
+@import 'utils/card';
+
 @import 'toggle-checkbox';
 @import 'sidebar';
 @import 'header';
 @import 'content';
 @import 'toast';
+@import 'table';
+@import 'modal';

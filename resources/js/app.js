@@ -8,9 +8,12 @@ import VueRouter from 'vue-router'
 import Index from '@/Index';
 import auth from 'configs/auth'
 import router from 'configs/router'
+import store from 'configs/store';
 import { BootstrapVue, BootstrapVueIcons } from 'bootstrap-vue'
 import Loading from 'vue-loading-overlay';
 import Toast from "vue-toastification";
+import VModal from 'vue-js-modal';
+import VueEvents from 'vue-events';
 
 // Set Vue globally
 window.Vue = Vue
@@ -36,7 +39,14 @@ Vue.use(Toast, {
     // You can set your default options here
 });
 
+//Modal
+Vue.use(VModal, { dynamic: true, injectModalsContainer: true, adaptive: true })
+
+//Events
+Vue.use(VueEvents);
+
 const app = new Vue({
     el: '#app',
-    router
+    router,
+    store
 });

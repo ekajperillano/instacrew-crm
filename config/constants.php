@@ -14,7 +14,7 @@ return [
         'forbidden' => '403',
         'not_found' => '422',
     ],
-    'pagination_limit' => 40,
+    'pagination_limit' => 50,
     'option_limit' => 10,
     'crypt_key' => 'pM3XMoseqW',
     'upload_options' => [

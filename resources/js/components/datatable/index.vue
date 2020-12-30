@@ -2,7 +2,8 @@
 	<div :ref="datatableRef" class="vld-parent">
 		<div v-if="withControl" class="table-actions">
             <div class="mb-2 table-control row">
-				 <div class="col">
+				<b-col cols="4">
+					<search/>
 					<button v-if="withAdvanceFilter" type="button" @click.prevent="advanceFilterFunc" class="btn btn-outline-secondary">
 						<i class="fa  fa-filter" />
 						<span>Advance Filter</span>
@@ -10,32 +11,32 @@
 					</button>
 					<small v-if="filter_count" class="ml-2 text-secondary"><a @click="$events.fire('clear-datatable-filter', false, null)" >clear filter</a></small>
                     <slot class="ml-2" name="additional-control-left"></slot>
-                </div>
-                <div class="col right">
+                </b-col>
+                <b-col class="right">
                     <b-button-group class="text-nowrap">
                     	<slot name="additional-control"></slot>
-                        <button v-if="withCreate" @click="createFunc" type="button" class="btn btn-outline-success">
+                        <button v-if="withCreate" @click="createFunc" type="button" class="btn btn-info">
                             <em class="fa fa-plus" />
                             <span>Create</span>
                         </button>
-						<button v-if="withImport" @click="importFunc" type="button" class="btn btn-outline-success">
+						<button v-if="withImport" @click="importFunc" type="button" class="btn btn-info">
                             <em class="fa fa-upload" />
                             <span>Import</span>
                         </button>
-                        <button v-if="withExport" @click="exportFunc" type="button" class="btn btn-outline-success">
+                        <button v-if="withExport" @click="exportFunc" type="button" class="btn btn-info">
                             <em class="fa fa-file-excel-o" />
                             <span>Export</span>
                         </button>
-                        <button v-if="withUpload" @click="uploadFunc" type="button" class="btn btn-outline-success">
+                        <button v-if="withUpload" @click="uploadFunc" type="button" class="btn btn-info">
                             <em class="fa fa-upload" />
                             <span>Upload</span>
                         </button>
-						<button v-if="withDelete" @click="deleteFunc" type="button" class="ml-2 btn btn-outline-danger">
+						<button v-if="withDelete" @click="deleteFunc" type="button" class="ml-2 btn btn-danger">
 							<em class="fa fa-trash-o" />
 							<span>Delete</span>
 						</button>
                     </b-button-group>
-                </div>
+                </b-col>
 	        </div>
 		</div>
 		<vuetable
@@ -72,13 +73,13 @@
     </div>
 </template>
 <script>
-	import accounting from 'accounting'
-	import moment from 'moment'
 	import Vuetable from 'vuetable-2/src/components/Vuetable'
 	import VuetablePagination from 'vuetable-2/src/components/VuetablePagination'
 	import VuetablePaginationInfo from 'vuetable-2/src/components/VuetablePaginationInfo'
 
-	import { DATE_FORMAT, PAGINATION_LIMIT } from 'configs/constants.js'
+	import Search from './utils/search';
+
+	import { PAGINATION_LIMIT } from 'configs/constants.js'
 	import { 
 		formatNumber,
 		allCap,
@@ -94,9 +95,8 @@
 		components: {
 		    Vuetable,
 		    VuetablePagination,
-		    VuetablePaginationInfo,
-			FilterBar
-		    // TableControl
+			VuetablePaginationInfo,
+			Search
 	  	},
 	  	props : {
 			tableHeight : {
@@ -312,7 +312,7 @@
 	  			loader: null,
 	  			css : {
 		  			table: {
-						tableClass: 'table table-bordered table-striped table-hover',
+						tableClass: 'table table-bordered table-hover',
 						ascendingIcon: 'fa fa-sort-alpha-asc',
 						descendingIcon: 'fa fa-sort-alpha-desc'
 		        	},
@@ -342,6 +342,32 @@
 	  		selections() {
 				return (this.$refs[this.vuetableRef].selectedTo) ?  this.$refs[this.vuetableRef].selectedTo : [];
             },
+            filter_count() {
+                let count = null;
+                if(this.appendParams && this.appendParams.filters) {
+                    const result = _.map(this.appendParams.filters, function(filter, key) {
+						const value = filter.value;
+						switch (filter.operator) {
+							case 'with':
+							case 'without':
+								if(value && value == true) count++;
+								break;
+							case 'in':
+								if(value.length > 0) count+= value.length;
+								break;
+							case 'between':
+								if(value.from) count++;
+								if(value.to) count++;
+								break;
+							default:
+								if(value != null) count++
+								break;
+						}
+                    });
+                }
+
+                return count;
+            }
 	  	}
 	}
 </script>

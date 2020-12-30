@@ -56,7 +56,10 @@
                         password: app.password
                     },
                     success: function(response) {
+                        const { headers } =  response;
+
                         this.$router.push({name: 'dashboard'});
+                        this.$store.commit('auth/setToken', headers.authorization);
                     },
                     error: function() {
                         console.log('error');

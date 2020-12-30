@@ -5,7 +5,8 @@
     > .card {
         background: $white; 
         min-height: 50vh;
-
+        box-shadow: $box-shadow;
+        
         > .card-body{
             padding: 0px;
             > .card-header {

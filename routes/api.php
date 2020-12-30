@@ -16,17 +16,25 @@ use Illuminate\Support\Facades\Route;
 
 Route::group(['middleware' => 'auth:api'], function(){
     // Users
-    Route::get('users', 'UserController@index')->middleware('isAdmin');
-    Route::get('users/{id}', 'UserController@show')->middleware('isAdminOrSelf');
-
-
+    Route::prefix('users')->group(function () { 
+        Route::group(['middleware' => 'isAdmin'], function(){
+            Route::get('/', 'UserController@index')->middleware('isAdmin');
+            Route::post('/invite', 'UserController@invite')->middleware('isAdmin');
+        });
+        
+        Route::group(['middleware' => 'isAdminOrSelf'], function(){
+            Route::get('/{id}', 'UserController@show')->middleware('isAdminOrSelf');
+            Route::patch('/{id}', 'UserController@update')->middleware('isAdminOrSelf');
+        });
+    });
+    
     //Role
     Route::prefix('role')->group(function () { 
         Route::get('options', 'RoleController@options');
         Route::post('/', 'RoleController@store');
         Route::patch('{role}', 'RoleController@update');
     });
-
+    
     Route::get('permission/list', 'PermissionController@list');
 });
 
