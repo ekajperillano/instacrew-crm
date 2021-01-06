@@ -14046,6 +14046,11 @@ a.text-dark:focus {
   min-height: 30vh;
 }
 
+.profile-card > .card-body > .card-header {
+  align-items: center;
+  display: flex;
+}
+
 .profile-card + .profile-card {
   margin-top: 10px;
 }
@@ -16033,6 +16038,10 @@ form .form-group input:focus {
 
 .v--modal .modal .modal-body {
   padding: 0.75rem;
+}
+
+.v--modal .modal .modal-body .row + .row {
+  margin-bottom: 0.5rem;
 }
 
 .v--modal .modal .modal-footer {

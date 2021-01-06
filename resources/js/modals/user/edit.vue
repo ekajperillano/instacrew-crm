@@ -1,7 +1,7 @@
 <template>
     <div class="modal" :ref="pageReference">
         <div class="modal-header">
-            <span>Edit Customer</span>
+            <span>Edit User</span>
             <button  @click.prevent="close" class="float-right close-modal btn btn-outline-info" >
                 <em class="fa fa-times" aria-hidden="true"/>
             </button>
@@ -42,7 +42,7 @@
             </b-row>
         </div>
         <div class="modal-footer"> 
-            <button type="button" @click.prevent="update" class="float-right ml-1 btn btn-info">Update</button>
+            <button type="button" @click.prevent="update" class="btn btn-info">Update</button>
             <button v-if="record && record.invite_token" type="button" @click.prevent="resend" class="float-right ml-1 btn btn-secondary">Resend Invite</button>
         </div>
     </div>

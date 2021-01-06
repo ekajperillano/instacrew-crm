@@ -16,6 +16,8 @@ import VModal from 'vue-js-modal';
 import VueEvents from 'vue-events';
 import Fragment from 'vue-fragment'
 
+import 'vue-loading-overlay/dist/vue-loading.css';
+
 // Set Vue globally
 window.Vue = Vue
 // Set Vue router

@@ -1,31 +1,22 @@
 <template>
-    <div name="confirm-modal" class="advance-filter-wrapper">
-        <div class="card card-default" :class="className">
-            <div class="card-header"> 
-                <span>{{ title }}</span>
-                <button  @click.prevent="close" class="float-right close-modal btn btn-outline-info" >
-                    <i class="fa fa-times" aria-hidden="true"></i>
-                </button>
-            </div>
-            <div class="card-body">
-                <h1>{{ question }}</h1>
-            </div>
-            <div class="card-footer">
-                <div class="float-right">
-                    <button type="button" @click.prevent="confirm" class="btn btn-outline-success">Ok</button>
-                    <button type="button" @click.prevent="close" class="btn btn-outline-secondary">Cancel</button>
-                </div>
-            </div>
+    <div class="modal" name="confirm-modal">
+        <div class="modal-header">
+            <button  @click.prevent="close" class="right close-modal btn btn-outline-info" >
+                <em class="fa fa-times" aria-hidden="true"/>
+            </button>
+        </div>
+        <div class="modal-body">
+            <h1 class="text-center">{{ question }}</h1>
+        </div>
+        <div class="modal-footer">
+            <button type="button" @click.prevent="confirm" class="btn btn-info">Ok</button>
+            <button type="button" @click.prevent="close" class="btn btn-secondary">Cancel</button>
         </div>
     </div>
 </template>
 <script>
     export default {
         props : {
-            title : {
-                type: String,
-                required: true
-            },
             question : {
                 type: String,
                 required: true

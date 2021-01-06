@@ -60,6 +60,10 @@
     
         .modal-body {
             padding: .75rem;
+
+            .row + .row {
+                margin-bottom:  0.5rem;
+            }
         }
     
         .modal-footer {

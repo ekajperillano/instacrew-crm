@@ -1,5 +1,12 @@
 .profile-card {
     min-height: 30vh;
+
+    > .card-body {
+        >.card-header {
+            align-items: center;
+            display: flex;
+        }
+    }
 }
 
 .profile-card  + .profile-card {

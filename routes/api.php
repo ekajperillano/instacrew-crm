@@ -35,6 +35,14 @@ Route::group(['middleware' => 'auth:api'], function(){
         Route::post('/', 'RoleController@store');
         Route::patch('{role}', 'RoleController@update');
     });
+
+    //User Email
+    Route::prefix('user-email')->group(function () { 
+        Route::post('/', 'UserEmailController@store');
+        Route::get('/{user}/user', 'UserEmailController@byUser');
+        Route::patch('/{userEmail}', 'UserEmailController@update');
+        Route::delete('/{userEmail}', 'UserEmailController@destroy');
+    });
     
     Route::get('permission/list', 'PermissionController@list');
 });

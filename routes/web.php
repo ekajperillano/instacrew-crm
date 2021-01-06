@@ -13,10 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('mail', function () {
-    $user = App\Models\User::find(1);
-    return new App\Mail\User\InviteUser($user, '2222');
-});
+// Route::get('mail', function () {
+//     $user = App\Models\User::find(1);
+//     return new App\Mail\User\InviteUser($user, '2222');
+// });
 
 Route::get('/{any?}', function (){
     return view('index');

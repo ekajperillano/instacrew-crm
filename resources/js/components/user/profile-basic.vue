@@ -1,5 +1,5 @@
 <template>
-    <b-card :ref="pageReference" class="profile-card">
+    <b-card :ref="pageReference" class="vld-parent profile-card">
         <b-card-header> 
             <h4>Basic</h4>
         </b-card-header>
