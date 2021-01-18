@@ -1,0 +1,14 @@
+.client-detail-card {
+    min-height: 30vh;
+
+    > .card-body {
+        >.card-header {
+            align-items: center;
+            display: flex;
+        }
+    }
+}
+
+.client-detail-card  + .client-detail-card {
+    margin-top: 10px;
+}

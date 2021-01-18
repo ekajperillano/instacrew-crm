@@ -6,7 +6,7 @@
             </button>
         </div>
         <div class="modal-body">
-            <h1 class="text-center">{{ question }}</h1>
+            <h2 class="text-uppercase text-center">{{ question }}</h2>
         </div>
         <div class="modal-footer">
             <button type="button" @click.prevent="confirm" class="btn btn-info">Ok</button>

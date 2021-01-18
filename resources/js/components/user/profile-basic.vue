@@ -5,13 +5,13 @@
         </b-card-header>
         <b-card-body> 
                 <b-form>
-                <b-form-group label="Your Name" description="This will appear on your transactions">
-                    <b-form-input
-                        v-model="basic.name"
-                        type="text"
-                        required
-                    ></b-form-input>
-                </b-form-group>
+                    <b-form-group label="Your Name" description="This will appear on your transactions">
+                        <b-form-input
+                            v-model="basic.name"
+                            type="text"
+                            required
+                        ></b-form-input>
+                    </b-form-group>
                 </b-form>
         </b-card-body>
         <b-card-footer>

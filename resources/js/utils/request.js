@@ -102,7 +102,7 @@ export default class request {
 		return new Promise((resolve, reject) => {
 			this.app.$http.patch(url, data).then(res => {
 				loader.hide();
-				resolve([res.data.status, null]);
+				resolve([res.data.data, null]);
 			}, err => {
 				loader.hide();
 				resolve([null, err.response.data.errors]);

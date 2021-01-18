@@ -2,20 +2,17 @@
     <b-card :ref="pageReference" class="vld-parent">
         <b-card-body>
             <user-datatable
-            :ref="datatableRef"
-            :apiUrl="datatableUrl"
-            :fields="fields"
-            :sortOrder="sortOrder"
-            :multiSort=false
-            :appendParams="appendParams"
-            :cellClickedFunc="onCellClicked"
-            withControl
+                :ref="datatableRef"
+                :apiUrl="datatableUrl"
+                :fields="fields"
+                :sortOrder="sortOrder"
+                :multiSort=false
+                :appendParams="appendParams"
+                :cellClickedFunc="onCellClicked"
+                withControl
+                withCreate
+                :createFunc="createFunc"
             >
-                <template slot="additional-control">
-                    <button @click="invite" type="button" class="btn btn-primary">
-                        <span>INVITE USER</span>
-                    </button>
-                </template>
             </user-datatable>
         </b-card-body>
     </b-card>
@@ -27,8 +24,6 @@
 
     import UserDatatable from 'components/datatable';
 
-    import InviteUser from 'modals/user/invite';
-    import EditUser from 'modals/user/edit';
     import { refreshDatatable } from 'utils/helpers'
 
     export default {
@@ -44,9 +39,9 @@
             const sortOrder = (sort && sort.length > 0) ? sort : [{ field: 'created_at', sortField: 'created_at', direction: 'asc'}];
             return {
                 withDatatableControl: true,
-                datatableUrl: 'users',
-                datatableRef: 'datatableUser',
-                pageReference: 'userListPage', 
+                datatableUrl: 'client',
+                datatableRef: 'datatableClient',
+                pageReference: 'clientListPage', 
                 fields: [{
                     title: 'Name',
                     name: 'name',
@@ -54,45 +49,48 @@
                     dataClass: 'cell-clickable',
                     clickable: true,
                 },{
-                    title: 'Email',
-                    name: 'email',
-                    sortField: 'email',
+                    title: 'Address',
+                    name: 'address',
+                    sortField: 'address',
                 },{
-                    title: 'Role',
-                    name: 'role',
-                    sortField: 'role_id',
-                    callback: 'getFromCollection|name',
+                    title: 'Type',
+                    name: 'type',
+                    sortField: 'type',
+                    callback: 'allCap',
                 },{
                     title: 'Status',
                     name: 'active',
                     sortField: 'active',
-                    callback:'formatBoolean|Active,Inactive',
+                    callback: 'formatBoolean|Active,Inactive',
                 }],
                 sortOrder
             }
         },
         methods: {
-            onCellClicked(user, field) {
+            onCellClicked(client, field) {
                 if(field.title == 'Name'){
-                    this.$modal.show(EditUser, {
-                        user,
-                    },{
-                        height: "auto"
+                    this.$router.push({
+                        name: 'client_detail',
+                        params: {
+                            id: client.id,
+                            listParams: {
+                                sort: this.sortOrder,
+                                append: this.appendParams,
+                            }
+                        }
                     });
                 }
             },
-            invite() {
-                this.$modal.show(InviteUser, {
-                    inviteEvent: 'invite-user-confirm',
+            createFunc() {
+                this.$router.push({
+                    name: 'client_detail',
+                    params: {
+                        id: 'create',
+                    }
                 });
-            },
+            }
         },
         events: {
-            'invite-user-confirm' (refresh) {
-                if(refresh) {
-                    refreshDatatable(this, this.datatableRef);
-                }
-            },
             'search-list' (search) {
                 this.appendParams.search = search;
                 refreshDatatable(this, this.datatableRef);

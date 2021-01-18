@@ -43,6 +43,16 @@ Route::group(['middleware' => 'auth:api'], function(){
         Route::patch('/{userEmail}', 'UserEmailController@update');
         Route::delete('/{userEmail}', 'UserEmailController@destroy');
     });
+
+    Route::prefix('client')->group(function () { 
+        Route::get('/', 'ClientController@index');
+        Route::patch('/{client}/inactive', 'ClientController@inactive');
+        Route::patch('/{client}/active', 'ClientController@active');
+        Route::patch('/{client}/crew', 'ClientController@setAsCrew');
+        Route::get('/{client}', 'ClientController@show');
+        Route::patch('/{client}', 'ClientController@update');
+        Route::post('/', 'ClientController@store');
+    });
     
     Route::get('permission/list', 'PermissionController@list');
 });

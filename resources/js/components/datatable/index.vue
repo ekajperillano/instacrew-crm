@@ -117,11 +117,11 @@
 			},
 			withCreate: {
 				type: Boolean,
-				default: true
+				default: false
 			},
 			withExport: {
 				type: Boolean,
-				default: true
+				default: false
 			},
 			withImport: {
 	  			type: Boolean,
@@ -129,7 +129,7 @@
 	  		},
 			withDelete: {
 				type: Boolean,
-				default: true
+				default: false
             },
             withUpload: {
 				type: Boolean,
@@ -137,7 +137,7 @@
 			},
 	  		withControl: {
 	  			type: Boolean,
-	  			default: true,
+	  			default: false,
 	  		},
 	  		datatableRef: {
 	  			type: String,

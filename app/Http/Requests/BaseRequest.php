@@ -9,7 +9,7 @@ use Auth;
 class BaseRequest extends FormRequest
 {
     public $rules = [];
-
+    public $mode = 'store';
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -30,7 +30,7 @@ class BaseRequest extends FormRequest
     }
 
     public function all($keys = null) {
-        $data = parent::all();
+        $data = parent::all($keys);
 
         $mode = $this->segment(3);
         $method = $this->method();

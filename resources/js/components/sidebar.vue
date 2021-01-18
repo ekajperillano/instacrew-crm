@@ -42,7 +42,7 @@
                         icon: 'fa fa-tachometer'
                     },
                     {
-                        href: '/clients',
+                        href: '/client',
                         title: 'Clients',
                         icon: 'fa fa-briefcase'
                     },
@@ -55,12 +55,12 @@
                         hiddenOnCollapse: true
                     },
                     {
-                        href: '/users',
+                        href: '/user',
                         title: 'User Accounts',
                         icon: 'fa fa-users'
                     },
                     {
-                        href: '/roles',
+                        href: '/role',
                         title: 'Roles and Permissions',
                         icon: 'fa fa-lock'
                     },

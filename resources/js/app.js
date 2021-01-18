@@ -43,7 +43,7 @@ Vue.use(Toast, {
 });
 
 //Modal
-Vue.use(VModal, { dynamic: true, injectModalsContainer: true, adaptive: true })
+Vue.use(VModal, { dynamic: true, injectModalsContainer: true, adaptive: true, height: "auto" })
 
 //Events
 Vue.use(VueEvents);

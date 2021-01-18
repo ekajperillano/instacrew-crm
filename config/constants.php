@@ -22,4 +22,8 @@ return [
         'allowed_mime_type' => 'image/png,image/gif,image/jpeg,image/jpg,image/webp,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document',
         'size_limit' => 1024 * 1024 * 100
     ],
+    'client_type' => [
+        'crew' => 'crew',
+        'prospect' => 'prospect',
+    ]
 ];

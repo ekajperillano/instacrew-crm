@@ -14055,6 +14055,19 @@ a.text-dark:focus {
   margin-top: 10px;
 }
 
+.client-detail-card {
+  min-height: 30vh;
+}
+
+.client-detail-card > .card-body > .card-header {
+  align-items: center;
+  display: flex;
+}
+
+.client-detail-card + .client-detail-card {
+  margin-top: 10px;
+}
+
 .v-select {
   position: relative;
   font-family: inherit;
@@ -14453,13 +14466,19 @@ span {
   border-radius: 0px !important;
 }
 
-form .form-group input {
+form .form-group input,
+form .form-group textarea {
   border-color: #FCE2E3;
 }
 
-form .form-group input:focus {
+form .form-group input:focus,
+form .form-group textarea:focus {
   border-width: 2px;
   border-color: #FCE2E3;
+}
+
+textarea {
+  border-radius: 0px !important;
 }
 
 .checkbox-toggle {
@@ -16048,6 +16067,11 @@ form .form-group input:focus {
   border: none;
   align-items: center;
   justify-content: center;
+}
+
+.v--modal .modal .modal-footer .btn {
+  min-width: 200px;
+  text-transform: uppercase;
 }
 
 .v--modal .modal .v-select .vs__dropdown-menu {

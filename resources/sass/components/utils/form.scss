@@ -1,6 +1,6 @@
 form {
     .form-group {
-        input  {
+        input, textarea  {
             border-color: $pink;
 
             &:focus {

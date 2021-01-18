@@ -14,6 +14,9 @@ import RoleList from 'pages/role/list';
 import UserList from 'pages/user/list';
 import UserProfile from 'pages/user/profile';
 
+import ClientList from 'pages/client/list';
+import ClientDetail from 'pages/client/detail';
+
 const forbiddenAttr = {
     redirect: {name: 'login'}, 
     forbiddenRedirect: '/403'
@@ -58,8 +61,8 @@ const routes = [
         }
     },
     {
-        path: '/roles',
-        name: 'roles_list',
+        path: '/role',
+        name: 'role_list',
         component: RoleList,
         meta: {
             auth: true,
@@ -67,8 +70,8 @@ const routes = [
         }
     },
     {
-        path: '/users',
-        name: 'users_list',
+        path: '/user',
+        name: 'user_list',
         component: UserList,
         meta: {
             auth: true,
@@ -79,6 +82,24 @@ const routes = [
         path: '/profile',
         name: 'user_profile',
         component: UserProfile,
+        meta: {
+            auth: true,
+            ...forbiddenAttr
+        }
+    },
+    {
+        path: '/client',
+        name: 'client_list',
+        component: ClientList,
+        meta: {
+            auth: true,
+            ...forbiddenAttr
+        }
+    },
+    {
+        path: '/client/:id',
+        name: 'client_detail',
+        component: ClientDetail,
         meta: {
             auth: true,
             ...forbiddenAttr
