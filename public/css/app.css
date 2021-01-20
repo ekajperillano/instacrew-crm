@@ -14481,6 +14481,11 @@ textarea {
   border-radius: 0px !important;
 }
 
+a:hover {
+  text-decoration: none;
+  font-weight: bold;
+}
+
 .checkbox-toggle {
   width: 9em;
   display: flex;

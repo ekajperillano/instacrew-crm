@@ -14,7 +14,6 @@ use App\Http\Requests\Client\ActiveRequest;
 use App\Models\Client;
 
 use App\Traits\FilterTrait;
-
 class ClientController extends Controller
 {   
     use FilterTrait;

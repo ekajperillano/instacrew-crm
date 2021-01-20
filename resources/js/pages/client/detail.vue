@@ -1,7 +1,7 @@
 <template>
     <fragment>
         <basic @on-fetch="onBasicMount"/>
-        <fragment v-if="record && (record.id) ">
+        <fragment  v-if="record && (record.id)" >
             <socials :client="record" />    
             <contacts/>
         </fragment>

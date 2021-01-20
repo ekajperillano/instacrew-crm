@@ -4,6 +4,8 @@ namespace App\Http\Requests\Social;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+use App\Rules\Social\UrlAliveRule;
+
 class StoreRequest extends FormRequest
 {
     /**
@@ -24,8 +26,14 @@ class StoreRequest extends FormRequest
     public function rules()
     {
         return [
+            'client_id' => 'required|exists:clients,id',
             'type' => 'required|in:facebook,instagram,twitter',
-            'url' => 'required|url|active_url'
+            'url' => [
+                'required',
+                'regex:/^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/',
+                new UrlAliveRule(),
+                'unique:socials'
+            ]
         ];
     }
 }

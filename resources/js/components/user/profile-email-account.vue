@@ -78,7 +78,6 @@
 
             },
             openEmailModal(email_account) {
-                console.log(email_account);
                 this.$modal.show(AddEmailAccount, {
                     confirmEvent: 'update-create-email-account',
                     email_account

@@ -14,7 +14,8 @@ import Loading from 'vue-loading-overlay';
 import Toast from "vue-toastification";
 import VModal from 'vue-js-modal';
 import VueEvents from 'vue-events';
-import Fragment from 'vue-fragment'
+import Fragment from 'vue-fragment';
+import linkify from 'vue-linkify';
 
 import 'vue-loading-overlay/dist/vue-loading.css';
 
@@ -50,6 +51,9 @@ Vue.use(VueEvents);
 
 //Fragment
 Vue.use(Fragment.Plugin)
+
+//linkify
+Vue.directive('linkified', linkify)
 
 const app = new Vue({
     el: '#app',

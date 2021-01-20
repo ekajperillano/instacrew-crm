@@ -54,6 +54,14 @@ Route::group(['middleware' => 'auth:api'], function(){
         Route::post('/', 'ClientController@store');
     });
     
+    Route::prefix('social')->group(function () { 
+        Route::get('/', 'SocialController@index');
+        Route::get('/{social}', 'SocialController@show');
+        Route::patch('/{social}', 'SocialController@update');
+        Route::delete('/{social}', 'SocialController@destroy');
+        Route::post('/', 'SocialController@store');
+    });
+
     Route::get('permission/list', 'PermissionController@list');
 });
 
