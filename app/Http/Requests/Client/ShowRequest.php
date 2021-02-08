@@ -13,7 +13,7 @@ class ShowRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        return $this->user()->can('view_client_detail', App\Models\Client::class);
     }
 
     /**

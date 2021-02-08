@@ -18,4 +18,12 @@ class Client extends Model
     public function socials() {
         return $this->hasMany('App\Models\Social');
     }
+
+    public function contacts() {
+        return $this->hasMany('App\Models\ClientContact');
+    }
+
+    public function notes() {
+        return $this->hasMany('App\Models\ClientNote');
+    }
 }

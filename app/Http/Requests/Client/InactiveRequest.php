@@ -13,7 +13,7 @@ class InactiveRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        return $this->user()->can('update_client_status', App\Models\Client::class);
     }
 
     /**

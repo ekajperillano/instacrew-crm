@@ -112,7 +112,7 @@
                 if(res) {
                     res.map((record) => {
                         let moduleIndex = record.order_code.substring(0,2) * 1;
-                        
+                            
                         if(this.permissions[moduleIndex]) {
                             this.permissions[moduleIndex].items.push(record)
                         } else {
@@ -121,6 +121,15 @@
                             if(moduleIndex === 0) {
                                 label = 'User Permissons';
                                 key = 'user';
+                            } else if(moduleIndex === 1) {
+                                label = 'Client Permissons';
+                                key = 'client';
+                            } else if(moduleIndex === 2) {
+                                label = 'Social Permissons';
+                                key = 'social';
+                            } else if(moduleIndex === 3) {
+                                label = 'Contact Permissons';
+                                key = 'contact';
                             }
 
                             this.permissions[moduleIndex] = {

@@ -18,7 +18,7 @@
 
     const logoImg = {
         template: `<div class="py-3">
-                <img class="center-img sidebar-logo" src="images/instacrew-logo.png">
+                <img class="center-img sidebar-logo" src="${process.env.MIX_APP_URL}/images/instacrew-logo.png">
         </div>`
     }
     

@@ -13,8 +13,8 @@
                         <b-icon class="mr-2" :icon="social.type"></b-icon> {{ social.url }}
                     </b-link>
                     <div class="right">
-                        <b-button @click="openEditModal(social)" variant="primary"><b-icon icon="pencil"/></b-button>
-                        <b-button @click="confirmDelete(social.id, index)" variant="danger"><b-icon icon="trash"/></b-button> 
+                        <b-button @click="openEditModal(social)" :disabled="client.active != 1" variant="primary"><b-icon icon="pencil"/></b-button>
+                        <b-button @click="confirmDelete(social.id, index)" :disabled="client.active != 1" variant="danger"><b-icon icon="trash"/></b-button> 
                     </div>
                 </b-list-group-item>
             </b-list-group>

@@ -4,6 +4,8 @@ namespace App\Http\Requests\Client;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+use App\Models\Client;
+
 class IndexRequest extends FormRequest
 {
     /**
@@ -12,8 +14,9 @@ class IndexRequest extends FormRequest
      * @return bool
      */
     public function authorize()
-    {
-        return true;
+    {   
+
+        return $this->user()->can('view_client_list', Client::class);
     }
 
     /**

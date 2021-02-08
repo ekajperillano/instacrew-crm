@@ -13,7 +13,7 @@ class IndexRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        return $this->user()->can('view_social_list', App\Models\Social::class);
     }
 
     /**

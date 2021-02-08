@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Client;
+namespace App\Http\Requests\ClientNote;
 
-use App\Http\Requests\BaseRequest;
+use Illuminate\Foundation\Http\FormRequest;
 
-class ActiveRequest extends BaseRequest
+class IndexRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -13,7 +13,7 @@ class ActiveRequest extends BaseRequest
      */
     public function authorize()
     {
-        return $this->user()->can('update_client_status', App\Models\Client::class);
+        return true;
     }
 
     /**

@@ -26,7 +26,7 @@ class UrlAliveRule implements Rule
      */
     public function passes($attribute, $value)
     {   
-       return true;
+        return true; //TO DO:: Force this to return true first, will need to check issue on prod;
         try {
             $guzzleClient = new GuzzleClient();
             $guzzleRequest = $guzzleClient->head($value);

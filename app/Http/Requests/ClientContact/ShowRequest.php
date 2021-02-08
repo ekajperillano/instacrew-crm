@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Client;
+namespace App\Http\Requests\ClientContact;
 
 use App\Http\Requests\BaseRequest;
 
-class ActiveRequest extends BaseRequest
+class ShowRequest extends BaseRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -13,7 +13,7 @@ class ActiveRequest extends BaseRequest
      */
     public function authorize()
     {
-        return $this->user()->can('update_client_status', App\Models\Client::class);
+        return $this->user()->can('view_contact_detail', App\Models\ClientContact::class);
     }
 
     /**

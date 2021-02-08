@@ -13,6 +13,7 @@ class BasePolicy
      * 
      */
     protected function user(User $user) {
+       
         $this->user = $user;
 
         return $this;

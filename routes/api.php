@@ -52,6 +52,7 @@ Route::group(['middleware' => 'auth:api'], function(){
         Route::get('/{client}', 'ClientController@show');
         Route::patch('/{client}', 'ClientController@update');
         Route::post('/', 'ClientController@store');
+        Route::delete('/{client}', 'ClientController@destroy');
     });
     
     Route::prefix('social')->group(function () { 
@@ -60,6 +61,18 @@ Route::group(['middleware' => 'auth:api'], function(){
         Route::patch('/{social}', 'SocialController@update');
         Route::delete('/{social}', 'SocialController@destroy');
         Route::post('/', 'SocialController@store');
+    });
+
+    Route::prefix('contact')->group(function () { 
+        Route::get('/', 'ClientContactController@index');
+        Route::get('/{contact}', 'ClientContactController@show');
+        Route::patch('/{contact}', 'ClientContactController@update');
+        Route::delete('/{contact}', 'ClientContactController@destroy');
+        Route::post('/', 'ClientContactController@store');
+    });
+
+    Route::prefix('note')->group(function () { 
+        Route::post('/', 'ClientNoteController@store');
     });
 
     Route::get('permission/list', 'PermissionController@list');

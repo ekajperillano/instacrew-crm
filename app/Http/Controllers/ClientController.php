@@ -7,6 +7,7 @@ use App\Http\Requests\Client\IndexRequest;
 use App\Http\Requests\Client\ShowRequest;
 use App\Http\Requests\Client\StoreRequest;
 use App\Http\Requests\Client\UpdateRequest;
+use App\Http\Requests\Client\DestroyRequest;
 use App\Http\Requests\Client\SetAsCrewRequest;
 use App\Http\Requests\Client\InactiveRequest;
 use App\Http\Requests\Client\ActiveRequest;
@@ -19,7 +20,7 @@ class ClientController extends Controller
     use FilterTrait;
 
     protected $includes = [
-        'socials'
+        'socials', 'contacts', 'notes.user'
     ];
 
     public function index(IndexRequest $request) {
@@ -111,6 +112,22 @@ class ClientController extends Controller
         try {
             $record = $client->load($this->includes);
             return response()->json(['status' => 'success', 'data' => $record], config('constants.response_codes.success'));
+        } catch (\Exception $ex) {
+            return response()->json(['status' => 'error', 'errors' => ['something went wrong'], 'exception' => $ex->getMessage()], config('constants.response_codes.error'));
+        }
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\Models\Social  $social
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(DestroyRequest $request, Client $client)
+    {
+        try {
+            $deleted = $client->delete();
+            return response()->json(['status' => 'success', 'data' => $deleted], config('constants.response_codes.success'));
         } catch (\Exception $ex) {
             return response()->json(['status' => 'error', 'errors' => ['something went wrong'], 'exception' => $ex->getMessage()], config('constants.response_codes.error'));
         }

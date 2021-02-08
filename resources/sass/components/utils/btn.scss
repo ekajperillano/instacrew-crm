@@ -1,3 +1,7 @@
 .btn {
     border-radius: 0px;
+
+    &-light {
+        background-color: $light-gray;
+    }
 }

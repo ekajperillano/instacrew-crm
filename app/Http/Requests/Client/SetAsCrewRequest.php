@@ -13,7 +13,7 @@ class SetAsCrewRequest extends BaseRequest
      */
     public function authorize()
     {
-        return true;
+        return $this->user()->can('update_client_type', App\Models\Client::class);
     }
 
     /**

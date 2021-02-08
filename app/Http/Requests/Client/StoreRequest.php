@@ -13,7 +13,7 @@ class StoreRequest extends BaseRequest
      */
     public function authorize()
     {
-        return true;
+        return $this->user()->can('create_client', App\Models\Client::class);
     }
 
     /**

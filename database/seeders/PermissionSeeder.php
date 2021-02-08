@@ -18,6 +18,9 @@ class PermissionSeeder extends Seeder
     {
         
         self::createUserPermission();
+        self::createClientPermission();
+        self::createSocialPermission();
+        self::createContactPermission();
 
         $role = Role::firstOrCreate(['name' => 'Admin'],['admin' => true]);
         $permissions = Permission::get('id');
@@ -29,6 +32,38 @@ class PermissionSeeder extends Seeder
             'view_user_list',
             'invite_user',
             'update_user',
+        ]);
+    }
+
+    static private function createClientPermission() {
+        self::createPermission('0100', [
+            'view_client_list',
+            'view_client_detail',
+            'create_client',
+            'update_client',
+            'delete_client',
+            'update_client_status',
+            'update_client_type',
+        ]);
+    }
+
+    static private function createSocialPermission() {
+        self::createPermission('0200', [
+            'view_social_list',
+            'view_social_detail',
+            'create_social',
+            'update_social',
+            'delete_social',
+        ]);
+    }
+
+    static private function createContactPermission() {
+        self::createPermission('0300', [
+            'view_contact_list',
+            'view_contact_detail',
+            'create_contact',
+            'update_contact',
+            'delete_contact',
         ]);
     }
 

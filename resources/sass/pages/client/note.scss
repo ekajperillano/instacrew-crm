@@ -1,0 +1,21 @@
+.note-list {
+    .note-record {
+        margin-bottom: 10px;
+        .card-body {
+            min-height: auto;
+        }
+        .note-body {
+            padding: 15px;
+            text-align: left;
+        }
+        .note-footer {
+            text-align: right;
+
+            small{
+                font-style: italic;
+            }
+            
+            background: $light-gray;	
+        }
+    }
+}

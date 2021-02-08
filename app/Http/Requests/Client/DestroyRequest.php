@@ -4,7 +4,7 @@ namespace App\Http\Requests\Client;
 
 use App\Http\Requests\BaseRequest;
 
-class ActiveRequest extends BaseRequest
+class DestroyRequest extends BaseRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -13,7 +13,7 @@ class ActiveRequest extends BaseRequest
      */
     public function authorize()
     {
-        return $this->user()->can('update_client_status', App\Models\Client::class);
+        return $this->user()->can('delete_client', App\Models\Client::class);
     }
 
     /**

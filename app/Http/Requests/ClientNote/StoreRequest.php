@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Client;
+namespace App\Http\Requests\ClientNote;
 
-use App\Http\Requests\BaseRequest;
+use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateRequest extends BaseRequest
+class StoreRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -13,7 +13,7 @@ class UpdateRequest extends BaseRequest
      */
     public function authorize()
     {
-        return $this->user()->can('update_client', App\Models\Client::class);
+        return true;
     }
 
     /**
@@ -24,9 +24,9 @@ class UpdateRequest extends BaseRequest
     public function rules()
     {
         return [
-            'name' => 'required|min:5',
-            'address' => 'string|nullable',
-            'type' => 'in:crew,prospect'
+            'note' => 'required',
+            'client_id' => 'required|exists:clients,id',
+            'user_id' => 'required|exists:users,id',
         ];
     }
 
@@ -34,9 +34,7 @@ class UpdateRequest extends BaseRequest
     {
         $data = parent::all($keys);
 
-        if(!isset($data['type'])) {
-            $data['type'] = config('constants.client_type.prospect');
-        }
+        $data['user_id'] = \Auth::user()->id;
 
         return $data;
     }
