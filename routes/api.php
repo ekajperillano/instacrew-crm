@@ -87,3 +87,9 @@ Route::prefix('auth')->group(function () {
         Route::post('logout', 'AuthController@logout');
     });
 });
+
+Route::group(['middleware' => 'foreigner'], function(){
+    Route::prefix('foreign')->group(function () { 
+        Route::post('client', 'Foreign\ClientController@store');    
+    });
+});
