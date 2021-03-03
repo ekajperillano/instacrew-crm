@@ -64,4 +64,8 @@ class User extends Authenticatable implements JWTSubject
     public function emails() {
         return $this->hasMany('App\Models\UserEmail');
     }
+
+    public function notification_subscriptions() {
+        return $this->hasMany('App\Models\NotificationSubscriber');
+    }
 }
