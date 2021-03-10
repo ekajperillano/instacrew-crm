@@ -14086,6 +14086,26 @@ a.text-dark:focus {
   font-style: italic;
 }
 
+.notification-list .notification-item {
+  position: relative;
+  display: block;
+  cursor: pointer;
+  background-color: #F2F2F2;
+  border-left: solid #579ABE 2px;
+}
+
+.notification-list .notification-item.success {
+  border-left: solid #03C03C 2px;
+}
+
+.notification-list .notification-item.danger {
+  border-left: solid #C23B23 2px;
+}
+
+.notification-list .notification-item + .notification-item {
+  margin-top: 10px;
+}
+
 .detail-page-control {
   display: flex;
   background: white;

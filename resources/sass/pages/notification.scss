@@ -1,0 +1,21 @@
+.notification-list {
+    .notification-item {
+        position: relative;
+        display: block;
+        cursor: pointer;
+        background-color: $light-gray;
+
+        border-left: solid $blue 2px;
+
+        &.success {
+            border-left: solid $green 2px;
+        }
+        &.danger {
+            border-left: solid $red 2px;
+        }
+    }
+
+    .notification-item + .notification-item  {
+        margin-top: $margin-rg;
+    }
+}

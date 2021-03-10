@@ -76,6 +76,13 @@ Route::group(['middleware' => 'auth:api'], function(){
     });
 
     Route::get('permission/list', 'PermissionController@list');
+
+    //notification
+    Route::get('users/{user}/notification/unread/count', 'UserNotificationController@unreadCount');
+    Route::get('users/{user}/notification', 'UserNotificationController@notifications');
+    Route::patch('notification/all/read', 'UserNotificationController@readAll');
+    Route::patch('notification/{id}/read', 'UserNotificationController@read');
+
 });
 
 Route::prefix('auth')->group(function () {

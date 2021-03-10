@@ -55,6 +55,7 @@ class TestNotification extends Notification
     public function toArray($notifiable)
     {
         return [
+            'title' => 'Test Notification',
             'message' => 'Just A test notification',
             'event' =>'test.notify',
         ];

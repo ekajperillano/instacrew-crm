@@ -17,6 +17,8 @@ import UserProfile from 'pages/user/profile';
 import ClientList from 'pages/client/list';
 import ClientDetail from 'pages/client/detail';
 
+import Notification from 'pages/notifications';
+
 const forbiddenAttr = {
     redirect: {name: 'login'}, 
     forbiddenRedirect: '/403'
@@ -105,6 +107,16 @@ const routes = [
             ...forbiddenAttr
         }
     },
+    {
+        path: '/notifications',
+        name: 'notification',
+        component: Notification,
+        meta: {
+            auth: true,
+            ...forbiddenAttr
+        }
+    }
+
 ]
 
 const router = new VueRouter({
