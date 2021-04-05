@@ -82,7 +82,7 @@ Route::group(['middleware' => 'auth:api'], function(){
     Route::get('users/{user}/notification', 'UserNotificationController@notifications');
     Route::patch('notification/all/read', 'UserNotificationController@readAll');
     Route::patch('notification/{id}/read', 'UserNotificationController@read');
-
+    Route::get('notification/{id}/show', 'UserNotificationController@show');
 });
 
 Route::prefix('auth')->group(function () {

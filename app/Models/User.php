@@ -68,4 +68,11 @@ class User extends Authenticatable implements JWTSubject
     public function notification_subscriptions() {
         return $this->hasMany('App\Models\NotificationSubscriber');
     }
+
+    public function notifications()
+    {
+        return $this->morphMany(\Illuminate\Notifications\DatabaseNotification::class, 'notifiable')
+            ->orderByRaw('-read_at','DESC')
+            ->orderBy('created_at','DESC');
+    }
 }

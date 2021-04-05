@@ -14090,20 +14090,37 @@ a.text-dark:focus {
   position: relative;
   display: block;
   cursor: pointer;
-  background-color: #F2F2F2;
-  border-left: solid #579ABE 2px;
+  background-color: transparent;
+  border: solid 1px #F2F2F2;
 }
 
-.notification-list .notification-item.success {
-  border-left: solid #03C03C 2px;
+.notification-list .notification-item:hover {
+  background-color: #fef4f5;
 }
 
-.notification-list .notification-item.danger {
-  border-left: solid #C23B23 2px;
+.notification-list .notification-item.unread {
+  background-color: #fef4f5;
 }
 
-.notification-list .notification-item + .notification-item {
-  margin-top: 10px;
+.notification-list .notification-item .body-container {
+  padding-left: 0px;
+}
+
+.notification-list .notification-item .body-container .title {
+  color: darker(#FCE2E3);
+  font-weight: bold;
+}
+
+.notification-list .notification-item .icon-container {
+  display: flex;
+  align-items: center;
+}
+
+.notification-list .notification-item .icon-container .icon {
+  width: 30px;
+  height: 30px;
+  margin: 0 auto;
+  display: block;
 }
 
 .detail-page-control {

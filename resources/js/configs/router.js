@@ -17,7 +17,8 @@ import UserProfile from 'pages/user/profile';
 import ClientList from 'pages/client/list';
 import ClientDetail from 'pages/client/detail';
 
-import Notification from 'pages/notifications';
+import NotificationList from 'pages/notification/list';
+import NotificationDetail from 'pages/notification/detail';
 
 const forbiddenAttr = {
     redirect: {name: 'login'}, 
@@ -110,7 +111,16 @@ const routes = [
     {
         path: '/notifications',
         name: 'notification',
-        component: Notification,
+        component: NotificationList,
+        meta: {
+            auth: true,
+            ...forbiddenAttr
+        }
+    },
+    {
+        path: '/notifications/:id',
+        name: 'notification_detail',
+        component: NotificationDetail,
         meta: {
             auth: true,
             ...forbiddenAttr

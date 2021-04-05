@@ -55,9 +55,9 @@ export default class request {
 					loader.hide();
 				}
 
-				const errrors = err.response.data.errors || ['Problem connecting to server.'];
+				const errors = err.response.data.errors || ['Problem connecting to server.'];
 
-				resolve([null, err.response.data.errors]);
+				resolve([null, errors]);
 			});
 		});
 	}

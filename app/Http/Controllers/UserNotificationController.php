@@ -27,12 +27,31 @@ class UserNotificationController extends Controller
     public function notifications(UserNotificationRequest $request, User $user) {
         $data  = $request->all();
         if(!isset($data['since_id'])) {
-            $notifications = $user->unreadNotifications;
+            $notifications = $user->notifications;
         } else {
-            $notifications = $user->unreadNotifications()->skip($data['since_id'])->take($limit)->get();
+            $notifications = $user->notifications()
+                ->orderByRaw('ISNULL(read_at), read_at ASC')
+                ->skip($data['since_id'])
+                ->take(40)->get();
         }
 
         return response()->json(['status' => 'success', 'data' => $notifications], config('constants.response_codes.success'));
+    }
+
+    public function show(Request $request, $id)
+    {
+        $notification = DatabaseNotification::find($id);
+
+        if(!is_null($notification)) {
+            if(is_null($notification->read_at)) {
+                $notification->markAsRead();
+            }
+
+            return response()->json(['status' => 'success', 'data' => $notification], config('constants.response_codes.success'));
+        }
+
+        return response()->json(['status' => 'success', 'errors' => ['no record']], config('constants.response_codes.error'));
+        
     }
 
     public function read(UserNotificationRequest $request, User $user) {

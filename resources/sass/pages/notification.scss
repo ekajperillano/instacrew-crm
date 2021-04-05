@@ -3,19 +3,33 @@
         position: relative;
         display: block;
         cursor: pointer;
-        background-color: $light-gray;
-
-        border-left: solid $blue 2px;
-
-        &.success {
-            border-left: solid $green 2px;
+        background-color: transparent;
+        border: solid 1px $light-gray;
+        &:hover {
+            background-color: $light-pink;
         }
-        &.danger {
-            border-left: solid $red 2px;
+        &.unread {
+            background-color: $light-pink;
         }
-    }
 
-    .notification-item + .notification-item  {
-        margin-top: $margin-rg;
+        .body-container {
+            padding-left: 0px;
+            .title {
+                color: darker($pink);
+                font-weight: bold;
+            }
+        }
+
+        .icon-container {
+            display: flex;
+            align-items: center;
+            .icon {
+                width: 30px; 
+                height: 30px;
+                margin: 0 auto;
+                display: block;
+            }
+        }
+        
     }
 }

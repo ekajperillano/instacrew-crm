@@ -2,13 +2,27 @@
     <b-card class="mr-0" title="Notifications">
         <div @scroll="onScroll" class="notification-list" ref="notificationList">
             <b-card-body v-for="(notification, index) in notifications" :key="notification.id"
-                :class="notificationClass(notification)" >
-                <b-card-text @click="view(notification, index)">
-                    {{ notification.data.message || 'No Title' }}
-                </b-card-text>
-                <small class="float-right">
-                    {{ formatDate(notification.created_at) }}
-                </small>
+                :class="[
+                    notificationClass(notification),
+                ]" >
+                <b-row>
+                    <b-col class="icon-container" sm="1">
+                        <b-icon class="icon" :icon="(notification.read_at) ? 'envelope-open' : 'envelope-fill'"></b-icon>
+                    </b-col>
+                    <b-col class="body-container">
+                        <b-card-text @click="view(notification, index)">
+                            <h5 class="title">{{ notification.data.title || 'No Title' }} </h5>
+                            <b-row>
+                                <b-col cols="10" class="message">{{ notification.data.message || 'N/A' }} </b-col>
+                                <b-col class="float-right">
+                                    <small>
+                                        {{ formatDate(notification.created_at) }}
+                                    </small>
+                                </b-col>
+                            </b-row>
+                        </b-card-text>
+                    </b-col>
+                </b-row>
             </b-card-body>
         </div>
     </b-card>
@@ -54,11 +68,14 @@
             },
             notificationClass(notification) {
                 if(notification && notification.data && notification.data.type) {
-                    return 'notification-item py-2 pl-2 text-truncate ' + notification.data.type;
+                    return 'notification-item py-2 pl-2 ' + notification.data.type;
                 }
 
-                return 'notification-item py-2 pl-2 text-truncate';
+                return 'notification-item py-2 pl-2 ';
             },
+            view(notification, index) {
+
+            }
         }
     }
 </script>
